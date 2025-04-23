@@ -1,0 +1,1 @@
+# P6_textile_corrective_autommaton
