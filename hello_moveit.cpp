@@ -19,8 +19,8 @@ bool get_act_now(){
   return act_now;
 }
 
-double aproach_height = 0.504;
-double pick_up_height = 0.287;
+double aproach_height = 0.404;
+double pick_up_height = 0.288;
 
 geometry_msgs::msg::Pose posefromArray(double *arr)
 {
@@ -285,16 +285,16 @@ std::vector<double> joint_group_positions(6);
 double degtorad= 3.14159265358979323846 / 180.0;
 
 joint_group_positions[0] = -0*degtorad;  // radians
-joint_group_positions[1] = -52.47*degtorad;
-joint_group_positions[2] = -132.05*degtorad;
-joint_group_positions[3] = -85.48*degtorad;
+joint_group_positions[1] = -55.04*degtorad;
+joint_group_positions[2] = -141.63*degtorad;
+joint_group_positions[3] = -73.32*degtorad;
 joint_group_positions[4] = 90*degtorad;
 joint_group_positions[5] = -0*degtorad;
 
 
 move_group.setJointValueTarget(joint_group_positions);
-move_group.setMaxVelocityScalingFactor(0.5);
-move_group.setMaxAccelerationScalingFactor(0.5); 
+move_group.setMaxVelocityScalingFactor(1);
+move_group.setMaxAccelerationScalingFactor(1); 
 
 
 
@@ -402,8 +402,8 @@ int main(int argc, char * argv[])
       request_off->fun = 1;     // e.g., 1 for digital_out
       request_off->pin = 4;     // pin number
       request_off->state = 0; // 1.0 for ON, 0.0 for OFF
-      int slep_del1=1500;
-      int slep_del2=500;
+      int slep_del1=1100;
+      int slep_del2=200;
 
       // move from home to pickup pose
       cart_move(m_g_i, start_pose, aproach_height); // move to approach height
@@ -447,7 +447,7 @@ int main(int argc, char * argv[])
       } else {
         RCLCPP_ERROR(node->get_logger(), "Service call failed");
       }
-       rclcpp::sleep_for(std::chrono::milliseconds(slep_del1));
+       rclcpp::sleep_for(std::chrono::milliseconds(400));
       // move up to place down height
       cart_move(m_g_i, end_pose, aproach_height);
        rclcpp::sleep_for(std::chrono::milliseconds(slep_del2));
