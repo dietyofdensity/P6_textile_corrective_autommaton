@@ -18,7 +18,6 @@ this project is dedicated to making a framework for the P6 project of Robotics,
     the movement execution node
 
 a set of diagrams explaining the code can be found on the folowing link
-  https://drive.google.com/file/d/18v7rAhiSkVMFKWIJVLbMyOfbhgWe8ABp/view?usp=drive_link  
-
+   https://drive.google.com/file/d/18v7rAhiSkVMFKWIJVLbMyOfbhgWe8ABp/view?usp=sharing 
   
     
